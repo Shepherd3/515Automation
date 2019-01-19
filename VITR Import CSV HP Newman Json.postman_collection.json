@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "6fb89a2e-5c16-46ec-8277-2c823582e78d",
+		"name": "VITR Import CSV HP Newman Json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VITR Import API Happy Path CSV File One",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64316bc4-957b-4d9d-976d-44f6d6776be2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "Unique key identifying the client on whose behalf the request is made.",
+						"key": "clientId",
+						"type": "text",
+						"value": "12D6AC77CBBA410E95E59E86315CDF0F"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "setupId",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "rejectsFileUri",
+							"value": "Rejection",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"enabled": true,
+							"src": "ForTom.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://10.30.10.168:10004/vitr/v1/imports",
+					"protocol": "http",
+					"host": [
+						"10",
+						"30",
+						"10",
+						"168"
+					],
+					"port": "10004",
+					"path": [
+						"vitr",
+						"v1",
+						"imports"
+					]
+				},
+				"description": "Imports a company's invoice data for purposes of generating returns; including real-time reporting to a tax authority."
+			},
+			"response": []
+		}
+	]
+}
